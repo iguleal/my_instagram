@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MyInstagram" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+         <item name="colorPrimary">@color/gray</item>
+         <item name="colorPrimaryVariant">@color/gray_darker</item>
+         <item name="colorOnPrimary">@color/white</item>
+
+         <item name="colorSecondary">@color/black</item>
+         <item name="colorSecondaryVariant">@color/blue_enable</item>
+         <item name="colorOnSecondary">@color/black</item>
+
+         <item name="android:statusBarColor">?attr/colorSecondary</item>
+    </style>
+
+</resources>
