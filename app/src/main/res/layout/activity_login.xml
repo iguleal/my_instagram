@@ -1,82 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="32dp"
-    tools:context=".LoginActivity">
+    android:paddingHorizontal="32dp">
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        android:src="@drawable/instagram_logo_black"
-        android:contentDescription="@null" />
-
-    <EditText
-        android:id="@+id/edit_email"
-        style="@style/Theme.MyInstagram.FormEditText"
-        android:layout_below="@+id/img_logo"
-        android:autofillHints="@null"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" />
-
-
-    <EditText
-        android:id="@+id/edit_password"
-        style="@style/Theme.MyInstagram.FormEditText"
-        android:layout_below="@+id/edit_email"
-        android:autofillHints="@null"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/btn_enter"
-        style="@style/Theme.MyInstagram.FormButtonLogin"
-        android:layout_below="@+id/edit_password"
-        android:text="@string/enter" />
-
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_enter"
-        android:layout_marginTop="64dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3">
 
-        <View
-            android:id="@+id/view_1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:background="@color/gray_border" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txt_or"
-            style="@style/Theme.MyInstagram.TextViewBase"
-            android:layout_gravity="center"
-            android:background="@color/white"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="@string/or"
-            android:textSize="16sp" />
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:contentDescription="@null"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/instagram_logo_black" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_email_input"
+                style="@style/Theme.MyInstagram.FormEditTextInput"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_email"
+                    style="@style/Theme.MyInstagram.FormEditText"
+                    android:autofillHints="@null"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_password_input"
+                style="@style/Theme.MyInstagram.FormEditTextInput"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_password"
+                    style="@style/Theme.MyInstagram.FormEditText"
+                    android:autofillHints="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_enter"
+                style="@style/Theme.MyInstagram.FormButtonLogin"
+                android:text="@string/enter" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/view_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="@color/gray_border" />
+
+                <TextView
+                    android:id="@+id/txt_or"
+                    style="@style/Theme.MyInstagram.TextViewBase"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/or"
+                    android:textSize="16sp" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <View
         android:id="@+id/view_2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_above="@+id/txt_have_account"
+        app:layout_constraintBottom_toTopOf="@+id/txt_have_account"
         android:layout_marginBottom="16dp"
         android:background="@color/gray_border" />
 
     <TextView
         android:id="@+id/txt_have_account"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/white"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingVertical="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/does_not_have_account"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="32dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
