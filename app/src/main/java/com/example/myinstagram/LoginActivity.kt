@@ -1,8 +1,6 @@
 package com.example.myinstagram
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
@@ -20,14 +18,8 @@ class LoginActivity : AppCompatActivity() {
         binding.editPassword.addTextChangedListener(watcher)
 
         binding.btnEnter.setOnClickListener {
-            binding.btnEnter.showProgressBar(true)
-
             binding.editEmailInput.error = "Email Inválido"
             binding.editPasswordInput.error = "Senha Inválida"
-
-            Handler(Looper.getMainLooper()).postDelayed({
-                binding.btnEnter.showProgressBar(false)
-            }, 2000)
         }
     }
     private val watcher = object : TextWatcher {
