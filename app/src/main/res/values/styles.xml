@@ -28,4 +28,9 @@
         <item name="android:textColor">@color/gray_text</item>
     </style>
 
+    <style name="Theme.MyInstagram.TextViewBase.Form">
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>
