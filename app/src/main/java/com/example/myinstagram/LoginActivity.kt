@@ -1,5 +1,6 @@
 package com.example.myinstagram
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -16,17 +17,21 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.editEmail.addTextChangedListener(watcher)
-        binding.editPassword.addTextChangedListener(watcher)
+        binding.editEmailLogin.addTextChangedListener(watcher)
+        binding.editPasswordLogin.addTextChangedListener(watcher)
 
         binding.btnEnter.setOnClickListener {
             binding.btnEnter.showProgress(true)
-            binding.editEmailInput.error = "Email Inválido"
-            binding.editPasswordInput.error = "Senha Inválida"
+            binding.editEmailLoginInput.error = "Email Inválido"
+            binding.editPasswordLoginInput.error = "Senha Inválida"
 
             Handler(Looper.getMainLooper()).postDelayed({
                 binding.btnEnter.showProgress(false)
             },2000)
+        }
+
+        binding.txtHaveAccount.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
     private val watcher = object : TextWatcher {
