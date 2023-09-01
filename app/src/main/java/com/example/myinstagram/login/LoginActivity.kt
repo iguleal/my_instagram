@@ -1,4 +1,4 @@
-package com.example.myinstagram
+package com.example.myinstagram.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myinstagram.databinding.ActivityLoginBinding
+import com.example.myinstagram.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 

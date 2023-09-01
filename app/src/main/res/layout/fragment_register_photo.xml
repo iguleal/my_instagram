@@ -39,14 +39,19 @@
                 style="@style/Theme.MyInstagram.TextViewBase.Form"
                 android:text="@string/photo_register_subtitle"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
 
-            <com.example.myinstagram.LoadingButton
+            <com.example.myinstagram.login.LoadingButton
                 android:id="@+id/btn_next_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:text="@string/next" />
+
+            <Button
+                android:id="@+id/btn_register_jump"
+                style="@style/Theme.MyInstagram.Link"
+                android:text="@string/jump" />
 
         </LinearLayout>
 

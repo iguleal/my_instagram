@@ -1,7 +1,8 @@
-package com.example.myinstagram
+package com.example.myinstagram.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.myinstagram.R
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

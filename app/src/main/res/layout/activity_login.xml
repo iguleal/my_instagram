@@ -55,7 +55,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.example.myinstagram.LoadingButton
+            <com.example.myinstagram.login.LoadingButton
                 android:id="@+id/btn_enter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
