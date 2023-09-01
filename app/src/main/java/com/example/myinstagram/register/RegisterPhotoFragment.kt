@@ -33,9 +33,7 @@ class RegisterPhotoFragment : Fragment() {
 
                 }
             }
-
         }
-
         customDialog.show()
     }
 

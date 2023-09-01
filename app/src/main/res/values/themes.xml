@@ -6,7 +6,7 @@
 
          <item name="colorSecondary">@color/black</item>
          <item name="colorSecondaryVariant">@color/blue_enable</item>
-         <item name="colorOnSecondary">@color/black</item>
+         <item name="colorOnSecondary">@color/blue_disabled</item>
 
          <item name="android:statusBarColor">?attr/colorSecondary</item>
     </style>
