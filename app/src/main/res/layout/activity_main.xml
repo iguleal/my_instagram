@@ -18,23 +18,32 @@
             android:backgroundTint="@color/white">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_main"
                 app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:title="@string/app_name"/>
+                android:layout_height="?attr/actionBarSize">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:src="@drawable/instagram_logo_black"
+                    android:layout_marginTop="8dp"/>
+
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
 
     <fragment
         android:id="@+id/fragment_main"
-        android:name="com.example.myinstagram.profile.ProfileFragment"
+        android:name="com.example.myinstagram.search.SearchFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toTopOf="@+id/main_bottom_nav"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_search" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
