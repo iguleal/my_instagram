@@ -37,13 +37,13 @@
 
     <fragment
         android:id="@+id/fragment_main"
-        android:name="com.example.myinstagram.search.SearchFragment"
+        android:name="com.example.myinstagram.camera.CameraFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toTopOf="@+id/main_bottom_nav"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_gallery" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
