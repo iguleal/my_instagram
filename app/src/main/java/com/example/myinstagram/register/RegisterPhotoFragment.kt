@@ -2,24 +2,20 @@ package com.example.myinstagram.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.myinstagram.R
-import com.example.myinstagram.common.CustomDialog
+import com.example.myinstagram.common.view.CustomDialog
+import com.example.myinstagram.databinding.FragmentRegisterPhotoBinding
 
 
-class RegisterPhotoFragment : Fragment() {
+class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_register_photo, container, false)
-    }
-
+    private var binding: FragmentRegisterPhotoBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding = FragmentRegisterPhotoBinding.bind(view)
+
         val customDialog = CustomDialog(requireContext())
 
         customDialog.setTitle(R.string.define_photo_profile)
@@ -35,6 +31,11 @@ class RegisterPhotoFragment : Fragment() {
             }
         }
         customDialog.show()
+    }
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 
 }

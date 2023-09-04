@@ -28,6 +28,7 @@
     <string name="edit_profile">Editar perfil</string>
     <string name="username">username</string>
     <string name="invalid_email">Email inválido</string>
+    <string name="invalid_password">Senha inválida</string>
     <string name="password_not_equal">Senha e confirmar senha devem ser iguais.</string>
     <string name="save">Salvar</string>
     <string name="title_activity_add">AddActivity</string>

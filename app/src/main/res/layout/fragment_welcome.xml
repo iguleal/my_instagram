@@ -23,7 +23,7 @@
                 android:text="@string/welcome_to_instagram"
                 style="@style/Theme.MyInstagram.TextViewBase.Form" />
 
-            <com.example.myinstagram.login.LoadingButton
+            <com.example.myinstagram.login.view.LoadingButton
                 android:id="@+id/btn_next_name_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

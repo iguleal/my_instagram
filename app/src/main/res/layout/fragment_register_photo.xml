@@ -42,7 +42,7 @@
                 android:textColor="@color/black" />
 
 
-            <com.example.myinstagram.login.LoadingButton
+            <com.example.myinstagram.login.view.LoadingButton
                 android:id="@+id/btn_next_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
