@@ -4,11 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myinstagram.common.util.TxtWatcher
 import com.example.myinstagram.databinding.ActivityLoginBinding
 import com.example.myinstagram.login.Login
+import com.example.myinstagram.login.data.FakeDataSource
+import com.example.myinstagram.login.data.LoginRepository
 import com.example.myinstagram.login.presentation.LoginPresenter
+import com.example.myinstagram.main.MainActivity
 import com.example.myinstagram.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity(), Login.View {
@@ -23,7 +27,9 @@ class LoginActivity : AppCompatActivity(), Login.View {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        presenter = LoginPresenter(this)
+        val repository = LoginRepository( FakeDataSource())
+
+        presenter = LoginPresenter(this, repository)
 
         with(binding){
             editEmailLogin.addTextChangedListener(watcher)
@@ -68,10 +74,11 @@ class LoginActivity : AppCompatActivity(), Login.View {
     }
 
     override fun onUserAuthenticated() {
-        // OUTRA TELA
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
-    override fun onUserUnauthorized() {
-        // MOSTRAR ALERTA
+    override fun onUserUnauthorized(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }

@@ -1,6 +1,5 @@
 package com.example.myinstagram.login
 
-import com.example.myinstagram.R
 import com.example.myinstagram.common.base.BasePresenter
 import com.example.myinstagram.common.base.BaseView
 
@@ -15,6 +14,6 @@ interface Login {
         fun displayEmailFailure(emailError: Int?)
         fun displayPasswordFailure(passwordError: Int?)
         fun onUserAuthenticated()
-        fun onUserUnauthorized()
+        fun onUserUnauthorized(message: String)
     }
 }
