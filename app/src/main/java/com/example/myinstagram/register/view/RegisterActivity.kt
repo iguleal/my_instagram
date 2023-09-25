@@ -1,4 +1,4 @@
-package com.example.myinstagram.register
+package com.example.myinstagram.register.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,5 +8,12 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        val fragment = RegisterEmailFragment()
+
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.register_fragment, fragment)
+            commit()
+        }
     }
 }
