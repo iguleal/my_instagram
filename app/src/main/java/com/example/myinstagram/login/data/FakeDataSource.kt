@@ -3,14 +3,13 @@ package com.example.myinstagram.login.data
 import android.os.Handler
 import android.os.Looper
 import com.example.myinstagram.model.Database
-import com.example.myinstagram.model.UserAuth
 
 
 class FakeDataSource: LoginDataSource {
     override fun login(email: String, password: String, callback: LoginCallback) {
         Handler(Looper.getMainLooper()).postDelayed({
 
-            val userAuth = Database.userAuth.firstOrNull { email == it.email }
+            val userAuth = Database.usersAuth.firstOrNull { email == it.email }
 
             when{
                 userAuth == null ->{

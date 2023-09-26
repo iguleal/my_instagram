@@ -3,12 +3,12 @@ package com.example.myinstagram.register.presentation
 import android.util.Patterns
 import com.example.myinstagram.R
 import com.example.myinstagram.register.RegisterEmail
-import com.example.myinstagram.register.data.RegisterEmailCallback
-import com.example.myinstagram.register.data.RegisterEmailRepository
+import com.example.myinstagram.register.data.RegisterCallback
+import com.example.myinstagram.register.data.RegisterRepository
 
 class RegisterEmailPresenter(
     private var view: RegisterEmail.View?,
-    private val repository: RegisterEmailRepository
+    private val repository: RegisterRepository
     ) : RegisterEmail.Presenter {
 
     override fun create(email: String) {
@@ -24,9 +24,9 @@ class RegisterEmailPresenter(
         if(isEmailValid){
             view?.showProgress(true)
 
-            repository.create(email, object: RegisterEmailCallback{
+            repository.create(email, object: RegisterCallback{
                 override fun onSuccess() {
-                    view?.goToNamePasswordScreen(email)
+                    view?.goToNameAndPasswordScreen(email)
                 }
 
                 override fun onFailure(message: String) {
