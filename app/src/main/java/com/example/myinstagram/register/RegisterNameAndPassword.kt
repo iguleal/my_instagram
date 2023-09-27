@@ -15,6 +15,6 @@ interface RegisterNameAndPassword {
         fun displayNameFailure(@StringRes nameError: Int?)
         fun displayPasswordFailure(@StringRes passwordError: Int?)
         fun onCreateFailure(message: String)
-        fun onCreateSuccess(name: String)
+        fun goToWelcomeScreen(name: String)
     }
 }

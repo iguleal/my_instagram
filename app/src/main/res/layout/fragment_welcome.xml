@@ -20,14 +20,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txt_welcome"
                 android:text="@string/welcome_to_instagram"
                 style="@style/Theme.MyInstagram.TextViewBase.Form" />
 
-            <com.example.myinstagram.login.view.LoadingButton
-                android:id="@+id/btn_next_name_register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:text="@string/continuee" />
+            <Button
+                android:id="@+id/btn_next_welcome_register"
+                style="@style/Theme.MyInstagram.FormButtonLogin"
+                android:backgroundTint="@color/button_background"
+                android:text="@string/next" />
 
         </LinearLayout>
 
