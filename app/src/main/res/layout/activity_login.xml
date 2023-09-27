@@ -45,6 +45,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_password_login_input"
+                app:passwordToggleEnabled="true"
                 style="@style/Theme.MyInstagram.FormEditTextInput"
                 app:hintEnabled="false">
 
@@ -52,12 +53,13 @@
                     android:id="@+id/edit_password_login"
                     style="@style/Theme.MyInstagram.FormEditText"
                     android:autofillHints="@null"
+
                     android:hint="@string/password"
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.example.myinstagram.login.view.LoadingButton
+            <com.example.myinstagram.common.view.LoadingButton
                 android:id="@+id/btn_enter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

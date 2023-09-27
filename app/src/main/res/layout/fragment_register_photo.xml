@@ -42,11 +42,12 @@
                 android:textColor="@color/black" />
 
 
-            <com.example.myinstagram.login.view.LoadingButton
+            <Button
+                style="@style/Theme.MyInstagram.FormButtonLogin"
                 android:id="@+id/btn_next_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="@string/next" />
+                android:text="@string/next" />
 
             <Button
                 android:id="@+id/btn_register_jump"
