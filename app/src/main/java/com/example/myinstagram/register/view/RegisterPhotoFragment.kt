@@ -6,17 +6,22 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import com.example.myinstagram.R
+import com.example.myinstagram.common.base.DependencyInjector
 import com.example.myinstagram.common.view.CropperImageFragment.Companion.KEY_URI
 import com.example.myinstagram.common.view.CustomDialog
 import com.example.myinstagram.databinding.FragmentRegisterPhotoBinding
+import com.example.myinstagram.register.RegisterPhoto
+import com.example.myinstagram.register.presentation.RegisterPhotoPresenter
 
 
-class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
+class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo), RegisterPhoto.View {
 
     private var binding: FragmentRegisterPhotoBinding? = null
     private var fragmentAttachListener: FragmentAttachListener? = null
+    override lateinit var presenter: RegisterPhoto.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,10 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterPhotoBinding.bind(view)
 
+        binding?.btnNextRegister?.isEnabled = true
+
+        presenter = RegisterPhotoPresenter(this, DependencyInjector.registerEmailRepository())
+
         binding?.btnRegisterJump?.setOnClickListener {
             fragmentAttachListener?.goToMainScreen()
         }
@@ -41,26 +50,36 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
         binding?.btnNextRegister?.setOnClickListener {
             createDialog()
         }
+    }
 
+    override fun showProgress(enabled: Boolean) {
+        binding?.btnNextRegister?.showProgress(enabled)
+    }
+
+    override fun onUpdateFailure(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onUpdateSuccess() {
+        fragmentAttachListener?.goToMainScreen()
     }
 
     private fun createDialog() {
-        val customDialog = CustomDialog(requireContext())
+        CustomDialog(requireContext()).apply {
+            setTitle(R.string.define_photo_profile)
+            addButton(R.string.photo, R.string.gallery) {
+                when (it.id) {
+                    R.string.photo -> {
+                        fragmentAttachListener?.goToCameraScreen()
+                    }
 
-        customDialog.setTitle(R.string.define_photo_profile)
-
-        customDialog.addButton(R.string.photo, R.string.gallery) {
-            when (it.id) {
-                R.string.photo -> {
-                    fragmentAttachListener?.goToCameraScreen()
-                }
-
-                R.string.gallery -> {
-                    fragmentAttachListener?.gotoGalleryScreen()
+                    R.string.gallery -> {
+                        fragmentAttachListener?.gotoGalleryScreen()
+                    }
                 }
             }
+            show()
         }
-        customDialog.show()
     }
 
     override fun onAttach(context: Context) {
@@ -73,11 +92,13 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
     private fun onCropImageResult(uri: Uri?){
         if (uri != null){
             binding?.imgRegisterProfile?.setImageURI(uri)
+            presenter.updateUser(uri)
         }
     }
 
     override fun onDestroy() {
         binding = null
+        presenter.onDestroy()
         super.onDestroy()
     }
 
