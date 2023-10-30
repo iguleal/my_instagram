@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.myinstagram.R
+import com.example.myinstagram.common.extension.hideKeyBoard
 import com.example.myinstagram.common.view.CropperImageFragment
 import com.example.myinstagram.common.view.CropperImageFragment.Companion.KEY_URI
 import com.example.myinstagram.main.MainActivity
@@ -117,6 +118,7 @@ class RegisterActivity : AppCompatActivity(), FragmentAttachListener {
                 commit()
             }
         }
+        hideKeyBoard()
     }
 
     private fun openImageCropper(uri: Uri) {

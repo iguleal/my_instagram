@@ -57,7 +57,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_already_has_account"
-        android:layout_marginBottom="16dp"
         android:background="@color/gray_border" />
 
     <TextView
@@ -65,6 +64,7 @@
         android:layout_width="match_parent"
         android:background="@color/white"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:gravity="center"
         android:paddingVertical="24dp"
         app:layout_constraintBottom_toBottomOf="parent"

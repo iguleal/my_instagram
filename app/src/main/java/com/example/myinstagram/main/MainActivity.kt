@@ -1,5 +1,7 @@
 package com.example.myinstagram.main
 
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsetsController
@@ -12,9 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        window.insetsController?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-//        window.statusBarColor = ContextCompat.getColor(this, R.color.gray)
+        if (SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.setSystemBarsAppearance(
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+            )
 
+            window.statusBarColor = ContextCompat.getColor(this, R.color.gray)
+        }
         val toolbar = findViewById<Toolbar>(R.id.toolbar_main)
 
         setSupportActionBar(toolbar)

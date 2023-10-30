@@ -14,6 +14,7 @@
         android:elevation="2dp"
         android:layout_margin="14dp"
         android:indeterminateTint="@color/white"
+        android:indeterminateTintMode="src_in"
         android:layout_gravity="center_horizontal"/>
 
 </merge>
