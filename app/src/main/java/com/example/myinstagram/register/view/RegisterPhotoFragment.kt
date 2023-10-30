@@ -52,7 +52,7 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
         customDialog.addButton(R.string.photo, R.string.gallery) {
             when (it.id) {
                 R.string.photo -> {
-
+                    fragmentAttachListener?.goToCameraScreen()
                 }
 
                 R.string.gallery -> {
